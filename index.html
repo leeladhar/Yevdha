@@ -9,7 +9,7 @@
   <h3> The Reference is </h3>
   <br>
 	<form>
-			<label id="value" wrap="soft" >
+			<label id="print_value" wrap="soft" >
 	</form>
 
 	<script src=
@@ -20,6 +20,7 @@
     var firebaseConfig = {
       apiKey: "AIzaSyBLWB2C0BJ1ScHrdNH2qlIz3u8fQ71cLZs",
       authDomain: "yevdha.firebaseapp.com",
+      databaseURL: "https://yevdha-default-rtdb.firebaseio.com/",
       projectId: "yevdha",
       storageBucket: "yevdha.appspot.com",
       messagingSenderId: "738867635986",
@@ -37,11 +38,12 @@
     function gotData(data) {
       var Reference = data.val();
       var keys=Object.keys(Reference);
-      for(var i=0;i<keys.length();i++)
+      for(var i=0;i<keys.length;i++)
       {
         var k=keys[i];
         var value=Reference[k].value;
-        document.getElementById('value').innerHTML=value;
+        console.log(value);
+        document.getElementById('print_value').innerHTML=value.value;
       }
     }
 
